@@ -685,6 +685,7 @@ static void ChooseDistanceParams(BrotliEncoderParams* params) {
 static BROTLI_BOOL EnsureInitialized(BrotliEncoderState* s) {
   MemoryManager* m = &s->memory_manager_;
   if (BROTLI_IS_OOM(m)) return BROTLI_FALSE;
+  if (s == NULL) return BROTLI_FALSE;
   if (s->is_initialized_) return BROTLI_TRUE;
 
   s->last_bytes_bits_ = 0;
